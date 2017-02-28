@@ -15,13 +15,16 @@ set dateformat dmy
 create table CONNECTION (
 	customer_id smallint not null,
 	tariff_id smallint not null,
-	phone_number decimal(10, 0)
+	phone_number decimal(10, 0),
+	used_minutes smallint,
+	used_messages smallint,
+	used_internet smallint
 );
 
 create table CUSTOMER (
 	customer_id smallint not null primary key,
 	[name] nvarchar(50),
-	[location] nvarchar(30),
+	location_id smallint,
 	[address] nvarchar(40),
 	passport decimal(10, 0),
 	credit smallmoney,
@@ -38,7 +41,7 @@ create table EMPLOYEE (
 	employee_id smallint not null primary key,
 	last_name nvarchar(15),
 	first_name nvarchar(15),
-	hire_date datetime,
+	hire_date date,
 	manager_id smallint,
 	salary smallmoney,
 	job_id smallint,
@@ -78,7 +81,10 @@ create table TARIFF (
 	[messages] smallint,
 	internet_h smallint,
 	month_pay smallmoney,
-	customers_rate smallint,
+	minute_price smallmoney,
+	message_price smallmoney,
+	internet_price smallmoney,
+	customers_rate smallmoney,
 	comments nvarchar(500)
 );
 
@@ -130,5 +136,11 @@ alter table SUPPORT_STAFF add
 	on update cascade,
 	foreign key (tsk_by)
 	references EMPLOYEE (employee_id)
+	on delete no action
+	on update no action;
+
+alter table CUSTOMER add
+	foreign key (location_id)
+	references LOCATION (location_id)
 	on delete no action
 	on update no action;
