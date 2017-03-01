@@ -1,3 +1,15 @@
+--Cleaning tables
+delete from CONNECTION;
+delete from CUSTOMER;
+delete from DEPARTMENT;
+delete from EMPLOYEE;
+delete from JOB;
+delete from LOCATION;
+delete from SUPPORT;
+delete from SUPPORT_STAFF;
+delete from TARIFF;
+
+--Filling tables
 --LOCATION
 insert into LOCATION (location_id, location)
 	values(100, 'Москва');
