@@ -1,4 +1,22 @@
+--Cleaning tables
+
+delete from CONNECTION;
+delete from CUSTOMER;
+delete from DEPARTMENT;
+delete from EMPLOYEE;
+delete from JOB;
+delete from LOCATION;
+delete from SUPPORT;
+delete from SUPPORT_STAFF;
+delete from TARIFF;
+
+--Filling tables
+
 --LOCATION
+-- Use sys.identity_columns to see if there was a last known identity value
+-- for the Table. If there was one, the Table is not new and needs a reset
+if exists (select * from sys.identity_columns where object_name(object_id) = 'LOCATION' and last_value is not null) 
+    dbcc checkident (LOCATION, reseed, 99);
 insert into LOCATION (location)
 	values('Москва');
 insert into LOCATION (location)
@@ -7,6 +25,8 @@ insert into LOCATION (location)
 	values('Екатеринбург');
 
 --CUSTOMER
+if exists (select * from sys.identity_columns where object_name(object_id) = 'CUSTOMER' and last_value is not null) 
+    dbcc checkident (CUSTOMER, reseed, 199);
 insert into CUSTOMER (name, location_id, address, passport, credit, comments) 
 	values('Егоров Егор', 102, 'улица, дом, квартира', 0000000000, 4000, 'no comments');
 insert into CUSTOMER (name, location_id, address, passport, credit, comments) 
@@ -29,6 +49,8 @@ insert into CUSTOMER (name, location_id, address, passport, credit, comments)
 	values('Николаев Николай', 102, 'улица, дом, квартира', 9999999999, 1455, 'no comments');
 
 --DEPARTMENT
+if exists (select * from sys.identity_columns where object_name(object_id) = 'DEPARTMENT' and last_value is not null) 
+    dbcc checkident (DEPARTMENT, reseed, 299);
 insert into DEPARTMENT (name, location_id)
 	values('Василек', 100);
 insert into DEPARTMENT (name, location_id)
@@ -37,6 +59,8 @@ insert into DEPARTMENT (name, location_id)
 	values('Розочка', 102);
 
 --JOB
+if exists (select * from sys.identity_columns where object_name(object_id) = 'JOB' and last_value is not null) 
+    dbcc checkident (JOB, reseed, 399);
 insert into JOB ([function])
 	values('менеджер');
 insert into JOB ([function])
@@ -45,6 +69,8 @@ insert into JOB ([function])
 	values('директор');
 
 --EMPLOYEE
+if exists (select * from sys.identity_columns where object_name(object_id) = 'EMPLOYEE' and last_value is not null) 
+    dbcc checkident (EMPLOYEE, reseed, 499);
 insert into EMPLOYEE (last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
 	values('Егоров', 'Владислав', '12/2/2009', null, 70000, 402, 300);
 insert into EMPLOYEE (last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
@@ -67,6 +93,8 @@ insert into EMPLOYEE (last_name, first_name, hire_date, manager_id, salary, job_
 	values('Игорев', 'Александр', '8/9/2015', 507, 46000, 402, 302);
 
 --TARIFF
+if exists (select * from sys.identity_columns where object_name(object_id) = 'TARIFF' and last_value is not null) 
+    dbcc checkident (TARIFF, reseed, 599);
 insert into TARIFF (name, minutes, messages, internet_h, month_pay, minute_price, 
 	message_price, internet_price, customers_rate, comments)
 	values('Все за 100', 300, 100, 200, 100, 1, 2, 10, 4, 'no comments');
@@ -129,6 +157,8 @@ insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used
 	values(206, 604, 9168581132, 456, 55, 14);
 
 --SUPPORT: customer_id in range(200, 209)
+if exists (select * from sys.identity_columns where object_name(object_id) = 'SUPPORT' and last_value is not null) 
+    dbcc checkident (SUPPORT, reseed, 699);
 insert into SUPPORT (customer_id, inquiry_date, close_date, comments)
 	values(200, '21/3/2015 17:21:20', '23/5/2015 10:37:00', 'no comments');
 insert into SUPPORT (customer_id, inquiry_date, close_date, comments)
