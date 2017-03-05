@@ -15,14 +15,14 @@ set dateformat dmy
 create table CONNECTION (
 	customer_id smallint not null,
 	tariff_id smallint not null,
-	phone_number decimal(10, 0),
+	phone_number decimal(10, 0) unique,
 	used_minutes smallint,
 	used_messages smallint,
 	used_internet smallint
 );
 
 create table CUSTOMER (
-	customer_id smallint not null primary key,
+	customer_id smallint not null primary key identity(200, 1),
 	[name] nvarchar(50),
 	location_id smallint,
 	[address] nvarchar(40),
@@ -32,13 +32,13 @@ create table CUSTOMER (
 );
 
 create table DEPARTMENT (
-	department_id smallint not null primary key,
+	department_id smallint not null primary key identity(300, 1),
 	[name] nvarchar(15),
 	location_id smallint
 );
 
 create table EMPLOYEE (
-	employee_id smallint not null primary key,
+	employee_id smallint not null primary key identity(500, 1),
 	last_name nvarchar(15),
 	first_name nvarchar(15),
 	hire_date date,
@@ -49,17 +49,17 @@ create table EMPLOYEE (
 );
 
 create table JOB (
-	job_id smallint not null primary key,
+	job_id smallint not null primary key identity(400, 1),
 	[function] nvarchar(30)
 );
 
 create table LOCATION (
-	location_id smallint not null primary key,
+	location_id smallint not null primary key identity(100, 1),
 	[location] nvarchar(20)
 );
 
 create table SUPPORT (
-	inquiry_id smallint not null primary key,
+	inquiry_id smallint not null primary key identity(700, 1),
 	customer_id smallint,
 	inquiry_date datetime,
 	close_date datetime,
@@ -75,7 +75,7 @@ create table SUPPORT_STAFF (
 );
 
 create table TARIFF (
-	tariff_id smallint not null primary key,
+	tariff_id smallint not null primary key identity(600, 1),
 	[name] nvarchar(50),
 	[minutes] smallint,
 	[messages] smallint,
