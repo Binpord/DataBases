@@ -18,7 +18,8 @@ create table CONNECTION (
 	phone_number decimal(10, 0),
 	used_minutes smallint,
 	used_messages smallint,
-	used_internet smallint
+	used_internet smallint,
+	rate smallint
 );
 
 create table CUSTOMER (
@@ -84,7 +85,6 @@ create table TARIFF (
 	minute_price smallmoney,
 	message_price smallmoney,
 	internet_price smallmoney,
-	customers_rate smallmoney,
 	comments nvarchar(500)
 );
 
@@ -98,6 +98,9 @@ alter table CONNECTION add
 	references TARIFF (tariff_id)
 	on delete cascade
 	on update cascade;
+
+alter table CONNECTION add
+	CONSTRAINT [CK_CONNECTION_RATE] CHECK (rate > 0 and rate < 6);
 
 alter table DEPARTMENT add
 	foreign key (location_id)

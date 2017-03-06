@@ -80,65 +80,65 @@ insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id,
 
 --TARIFF
 insert into TARIFF (tariff_id, name, minutes, messages, internet_h, month_pay, minute_price, 
-	message_price, internet_price, customers_rate, comments)
-	values(600, 'Все за 100', 300, 100, 200, 100, 1, 2, 10, 4, 'no comments');
+	message_price, internet_price, comments)
+	values(600, 'Все за 100', 300, 100, 200, 100, 1, 2, 10, 'no comments');
 insert into TARIFF (tariff_id, name, minutes, messages, internet_h, month_pay, minute_price, 
-	message_price, internet_price, customers_rate, comments)
-	values(601, 'Все за 200', 600, 200, 400, 200, 1, 2, 10, 5, 'no comments');
+	message_price, internet_price, comments)
+	values(601, 'Все за 200', 600, 200, 400, 200, 1, 2, 10, 'no comments');
 insert into TARIFF (tariff_id, name, minutes, messages, internet_h, month_pay, minute_price, 
-	message_price, internet_price, customers_rate, comments)
-	values(602, 'Все за 300', 900, 300, 600, 300, 1, 2, 10, 3, 'no comments');
+	message_price, internet_price, comments)
+	values(602, 'Все за 300', 900, 300, 600, 300, 1, 2, 10, 'no comments');
 insert into TARIFF (tariff_id, name, minutes, messages, internet_h, month_pay, minute_price, 
-	message_price, internet_price, customers_rate, comments)
-	values(603, 'Ничего за 0', 0, 0, 0, 0, 2, 4, 20, 2, 'no comments');
+	message_price, internet_price, comments)
+	values(603, 'Ничего за 0', 0, 0, 0, 0, 2, 4, 20, 'no comments');
 insert into TARIFF (tariff_id, name, minutes, messages, internet_h, month_pay, minute_price, 
-	message_price, internet_price, customers_rate, comments)
-	values(604, 'Ничего за 100', 0, 0, 0, 100, 1, 2, 10, 4, 'no comments');
+	message_price, internet_price, comments)
+	values(604, 'Ничего за 100', 0, 0, 0, 100, 1, 2, 10, 'no comments');
 insert into TARIFF (tariff_id, name, minutes, messages, internet_h, month_pay, minute_price, 
-	message_price, internet_price, customers_rate, comments)
-	values(605, 'Гибрид', 100, 40, 100, 50, 2, 4, 20, 5, 'no comments');
+	message_price, internet_price, comments)
+	values(605, 'Гибрид', 100, 40, 100, 50, 2, 4, 20, 'no comments');
 
 --CONNECTION: customer_id in range(200, 209), tariff_id in range(600, 605)
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(200, 601, 9168581111, 317, 35, 123);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(200, 600, 9168581112, 199, 24, 144);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(201, 602, 9168581113, 135, 233, 16);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(202, 603, 9168581114, 500, 455, 345);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(202, 604, 9168581115, 563, 214, 456);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(202, 605, 9168581116, 532, 222, 123);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(203, 602, 9168581117, 341, 146, 34);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(204, 605, 9168581118, 342, 123, 341);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(204, 602, 9168581119, 13, 13, 334);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(205, 603, 9168581121, 15, 611, 442);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(206, 601, 9168581122, 231, 341, 333);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(207, 605, 9168581123, 463, 41, 42);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(208, 602, 9168581124, 513, 434, 664);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(209, 604, 9168581125,112, 232, 321);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(206, 601, 9168581126, 453, 22, 333);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(206, 600, 9168581127, 462, 616, 442);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(206, 600, 9168581128, 65, 452, 776);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(206, 601, 9168581129, 51, 521, 444);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(206, 603, 9168581131, 553, 10, 2);
-insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet)
-	values(206, 604, 9168581132, 456, 55, 14);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(200, 601, 9168581111, 317, 35, 123, 3);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(200, 600, 9168581112, 199, 24, 144, 4);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(201, 602, 9168581113, 135, 233, 16, 1);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(202, 603, 9168581114, 500, 455, 345, 5);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(202, 604, 9168581115, 563, 214, 456, 3);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(202, 605, 9168581116, 532, 222, 123, 2);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(203, 602, 9168581117, 341, 146, 34, 1);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(204, 605, 9168581118, 342, 123, 341, 5);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(204, 602, 9168581119, 13, 13, 334, 3);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(205, 603, 9168581121, 15, 611, 442, 4);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(206, 601, 9168581122, 231, 341, 333, 1);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(207, 605, 9168581123, 463, 41, 42, 3);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(208, 602, 9168581124, 513, 434, 664, 4);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(209, 604, 9168581125,112, 232, 321, 2);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(206, 601, 9168581126, 453, 22, 333, 5);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(206, 600, 9168581127, 462, 616, 442, 2);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(206, 600, 9168581128, 65, 452, 776, 1);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(206, 601, 9168581129, 51, 521, 444, 3);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(206, 603, 9168581131, 553, 10, 2, 3);
+insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used_messages, used_internet, rate)
+	values(206, 604, 9168581132, 456, 55, 14, 5);
 
 --SUPPORT: customer_id in range(200, 209)
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
