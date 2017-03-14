@@ -31,5 +31,5 @@ with min_dbt(tariff_id, name, min_debt) as (
 
 SELECT name, debt
 	FROM debts
-	WHERE tariff_id = (SELECT tariff_id FROM TARIFF WHERE name = 'Ничего за 0')
+	WHERE tariff_id = dbo.trfid_from_name('Ничего за 0')
 	AND debt > 3000;
