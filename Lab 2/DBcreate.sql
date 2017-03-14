@@ -1,4 +1,7 @@
 --Deleting DB
+DROP FUNCTION cstrid_from_name;
+DROP FUNCTION trfid_from_name;
+
 drop table CONNECTION;
 drop table SUPPORT_STAFF;
 drop table SUPPORT;
@@ -147,3 +150,27 @@ alter table CUSTOMER add
 	references LOCATION (location_id)
 	on delete no action
 	on update no action;
+
+GO
+CREATE FUNCTION cstrid_from_name(@customer_name nvarchar(50))
+	RETURNS SMALLINT
+	AS
+	BEGIN
+		RETURN 
+		(
+			SELECT customer_id FROM CUSTOMER
+				WHERE name = @customer_name
+		)
+	END;
+
+GO
+CREATE FUNCTION trfid_from_name(@tariff_name nvarchar(50))
+	RETURNS SMALLINT
+	AS
+	BEGIN
+		RETURN
+		(
+			SELECT tariff_id FROM TARIFF
+				WHERE name = @tariff_name
+		)
+	END;
