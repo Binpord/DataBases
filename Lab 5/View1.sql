@@ -19,7 +19,7 @@ CREATE VIEW  MP_TARIFF AS
 			) AS pop
 			FROM CUSTOMER C
 				JOIN CONNECTION ON C.customer_id = CONNECTION.customer_id
-			GROUP BY C.[name], C.customer_id
+			GROUP BY C.customer_id, C.[name]
 	)
 GO
 

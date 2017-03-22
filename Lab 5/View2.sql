@@ -11,7 +11,7 @@ CREATE VIEW CONNS_AM AS
 	(SELECT CUSTOMER.[name] AS customer, TARIFF.[name] AS tariff, COUNT(phone_number) AS amount
 		FROM CUSTOMER JOIN CONNECTION ON CUSTOMER.customer_id = CONNECTION.customer_id
 			JOIN TARIFF ON CONNECTION.tariff_id = TARIFF.tariff_id
-		GROUP BY CUSTOMER.[name], TARIFF.[name]
+		GROUP BY CUSTOMER.customer_id, CUSTOMER.[name], TARIFF.[name]
 	);
 GO
 
