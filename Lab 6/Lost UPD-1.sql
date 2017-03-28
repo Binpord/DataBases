@@ -2,16 +2,23 @@ USE CELLULAR;
 
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
-BEGIN TRAN;
+BEGIN TRANSACTION;
 
 SELECT * FROM JOB;
 
-UPDATE JOB SET
-	job_id = job_id + 5
+DECLARE @ID INT;
+
+
+SELECT @ID = job_id
+	FROM JOB
 	WHERE [function] = N'менеджер';
-	
+
 WAITFOR DELAY '00:00:05';
 
+UPDATE JOB
+	SET job_id = @ID + 5
+	WHERE [function] = N'менеджер';
+	
 COMMIT;
 
 WAITFOR DELAY '00:00:05';
