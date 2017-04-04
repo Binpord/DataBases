@@ -58,25 +58,25 @@ insert into JOB (job_id, [function])
 
 --EMPLOYEE
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(500, 'Егоров', 'Владислав', '12/2/2009', null, 70000, 402, 300);
+	values(500, 'Егоров', 'Владислав', '20090212', null, 70000, 402, 300);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(501, 'Николаев', 'Арсений', '21/4/2007', 500, 50000, 400, 300);
+	values(501, 'Николаев', 'Арсений', '20070421', 500, 50000, 400, 300);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(502, 'Арсеньев', 'Артем', '25/9/2013', 500, 40000, 401, 300);
+	values(502, 'Арсеньев', 'Артем', '20130925', 500, 40000, 401, 300);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(503, 'Павлов', 'Николай', '30/7/2006', null, 80000, 402, 301);
+	values(503, 'Павлов', 'Николай', '20060730', null, 80000, 402, 301);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(504, 'Иванов', 'Петр', '27/9/2014', 503, 40000, 400, 301);
+	values(504, 'Иванов', 'Петр', '20140927', 503, 40000, 400, 301);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(505, 'Вадимов', 'Николай', '25/1/2015', 503, 55000, 401, 301);
+	values(505, 'Вадимов', 'Николай', '20150125', 503, 55000, 401, 301);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(506, 'Павлов', 'Вадим', '18/2/2009', 503, 47000, 401, 301);
+	values(506, 'Павлов', 'Вадим', '20090218', 503, 47000, 401, 301);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(507, 'Егоров', 'Иван', '5/3/2008', null, 75000, 400, 302);
+	values(507, 'Егоров', 'Иван', '20080305', null, 75000, 400, 302);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(508, 'Петров', 'Вадим', '3/8/2014', 507, 50000, 401, 302);
+	values(508, 'Петров', 'Вадим', '20140308', 507, 50000, 401, 302);
 insert into EMPLOYEE (employee_id, last_name, first_name, hire_date, manager_id, salary, job_id, department_id)
-	values(509, 'Игорев', 'Александр', '8/9/2015', 507, 46000, 402, 302);
+	values(509, 'Игорев', 'Александр', '20150908', 507, 46000, 402, 302);
 
 --TARIFF
 insert into TARIFF (tariff_id, name, minutes, messages, internet_h, month_pay, minute_price, 
@@ -142,58 +142,58 @@ insert into CONNECTION (customer_id, tariff_id, phone_number, used_minutes, used
 
 --SUPPORT: customer_id in range(200, 209)
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(700, 200, '21/3/2015 17:21:20', '23/5/2015 10:37:00', 'no comments');
+	values(700, 200, '2015-03-21T17:21:20', '2015-05-23T10:37:00', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(701, 201, '7/7/2015 12:23:13', '7/8/2015 15:53:30', 'no comments');
+	values(701, 201, '2015-07-07T12:23:13', '2015-08-07T15:53:30', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(702, 201, '19/8/2015 9:45:37', '21/8/2015 07:36:48', 'no comments');
+	values(702, 201, '2015-08-19T9:45:37', '2015-08-21T07:36:48', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(703, 204, '03/9/2015 7:29:32', null, 'no comments');
+	values(703, 204, '2015-09-03T7:29:32', null, 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(704, 204, '7/9/2015 16:28:21', '7/12/2015 13:20:21', 'no comments');
+	values(704, 204, '2015-09-07T16:28:21', '2015-12-07T13:20:21', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(705, 204, '9/2/2016 19:11:12', '10/2/2016 10:29:21', 'no comments');
+	values(705, 204, '2016-02-09T19:11:12', '2016-02-10T10:29:21', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(706, 205, '14/2/2016 9:50:31', '14/2/2016 13:32:22', 'no comments');
+	values(706, 205, '2016-02-14T9:50:31', '2016-02-14T13:32:22', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(707, 207, '15/6/2016 13:00:08', '15/6/2016 17:07:56', 'no comments');
+	values(707, 207, '2016-06-15T13:00:08', '2016-06-15T17:07:56', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(708, 209, '16/6/2016 9:31:12', '16/6/2016 12:21:12', 'no comments');
+	values(708, 209, '2016-06-16T9:31:12', '2016-06-16T12:21:12', 'no comments');
 insert into SUPPORT (inquiry_id, customer_id, inquiry_date, close_date, comments)
-	values(709, 202, '3/12/2016 23:02:15', '14/01/2017 16:36:32', 'no comments');
+	values(709, 202, '2016-12-03T23:02:15', '2017-01-14T16:36:32', 'no comments');
 
 --SUPPORT_STAFF: inquiry_id in range(700, 709), employee_id in {501, 504, 507}
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(700, 501, '21/3/2015 17:21:20', null, 'no comments');
+	values(700, 501, '2015-03-21T17:21:20', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(701, 504, '7/7/2015 12:23:13', null, 'no comments');
+	values(701, 504, '2015-07-07T12:23:13', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(702, 507, '19/8/2015 9:45:37', null, 'no comments');
+	values(702, 507, '2015-08-19T9:45:37', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(703, 501, '03/9/2015 7:29:32', null, 'no comments');
+	values(703, 501, '2015-09-03T7:29:32', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(704, 504, '7/9/2015 16:28:21', null, 'no comments');
+	values(704, 504, '2015-09-07T16:28:21', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(705, 507, '9/2/2016 19:11:12', null, 'no comments');
+	values(705, 507, '2016-02-09T19:11:12', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(706, 501, '14/2/2016 9:50:31', null, 'no comments');
+	values(706, 501, '2016-02-14T9:50:31', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(707, 504, '15/6/2016 13:00:08', null, 'no comments');
+	values(707, 504, '2016-06-15T13:00:08', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(708, 507, '16/6/2016 9:31:12', null, 'no comments');
+	values(708, 507, '2016-06-16T9:31:12', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(709, 501, '3/12/2016 23:02:15', null, 'no comments');
+	values(709, 501, '2016-12-03T23:02:15', null, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(700, 504, '21/4/2015 14:12:44', 501, 'no comments');
+	values(700, 504, '2015-04-21T14:12:44', 501, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(703, 504, '12/12/2015 10:44:40', 501, 'no comments');
+	values(703, 504, '2015-12-12T10:44:40', 501, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(703, 504, '6/6/2016 15:37:26', 504, 'no comments');
+	values(703, 504, '2016-06-06T15:37:26', 504, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(701, 507, '20/7/2015 9:46:33', 504, 'no comments');
+	values(701, 507, '2015-07-20T9:46:33', 504, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(700, 507, '22/05/2015 14:37:45', 501, 'no comments');
+	values(700, 507, '2015-05-22T14:37:45', 501, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(709, 507, '27/12/2016 14:36:37', 501, 'no comments');
+	values(709, 507, '2016-12-27T14:36:37', 501, 'no comments');
 insert into SUPPORT_STAFF (inquiry_id, manager_id, tsk_given, tsk_by, comments)
-	values(709, 504, '10/01/2017 10:16:06', 501, 'no comments');
+	values(709, 504, '2017-01-10T10:16:06', 501, 'no comments');
