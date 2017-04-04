@@ -91,3 +91,49 @@ END CATCH;
 
 REVERT;
 ROLLBACK;
+
+REVOKE SELECT(job_id), UPDATE(job_id) ON EMPLOYEE TO test;
+
+--only SELECT on some table
+GRANT SELECT ON EMPLOYEE TO test;
+
+BEGIN TRANSACTION;
+EXECUTE AS USER = 'test';
+
+SELECT * FROM EMPLOYEE;
+
+REVERT;
+ROLLBACK;
+
+REVOKE SELECT ON EMPLOYEE TO test;
+
+--granting SELECT on view
+GRANT SELECT ON ACTIVITY TO test;
+
+BEGIN TRANSACTION;
+EXECUTE AS USER = 'test';
+
+SELECT * FROM ACTIVITY;
+
+REVERT;
+ROLLBACK;
+
+REVOKE SELECT ON ACTIVITY TO test;
+
+--creating role and granting it UPDATE on several columns in view
+DROP ROLE upd_view;
+CREATE ROLE upd_view;
+GRANT SELECT, UPDATE(minutes) ON view_tariff TO upd_view;
+
+GO
+ALTER ROLE upd_view ADD MEMBER test;
+
+BEGIN TRANSACTION;
+EXECUTE AS USER = 'test';
+
+UPDATE view_tariff
+	SET minutes = 233
+	WHERE name = N'Ничего за 0';
+
+REVERT;
+ROLLBACK;
