@@ -22,7 +22,8 @@ SELECT sys.objects.name
 -- Table name, column name, nullable, type name, type length for each table 
 -- for each column, created by the user
 SELECT sys.objects.name AS Table_name, sys.columns.name AS Column_name, sys.columns.is_nullable, 
-	sys.types.name, sys.types.max_length
+	sys.types.name, sys.columns.max_length
+	--sys.types.name, sys.types.max_length
 	FROM sys.objects JOIN sys.schemas AS SC ON sys.objects.schema_id = SC.schema_id
 		JOIN sys.columns ON sys.objects.object_id = sys.columns.object_id
 		JOIN sys.types ON sys.columns.user_type_id = sys.types.user_type_id
