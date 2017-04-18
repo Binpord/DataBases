@@ -43,7 +43,7 @@ CREATE TRIGGER CONNECTIONS_TRACK
 
 			SET @num_of_conns = (SELECT COUNT(*) FROM CONNECTION WHERE customer_id = @cur_customer);
 
-			IF @num_of_conns = 0
+			IF @num_of_conns = 0 AND EXISTS (SELECT * FROM CUSTOMER WHERE customer_id = @cur_customer)
 			BEGIN
 				PRINT 'Не удалось выполнить DELETE, так как для одного или нескольких пользователей соединение является последним.';
 				PRINT 'Перед удалением такого подключения удалите пользователя.';
