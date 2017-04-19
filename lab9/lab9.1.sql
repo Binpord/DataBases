@@ -44,12 +44,11 @@ CREATE TRIGGER CONNECTIONS_TRACK
 
 			SET @num_of_conns = (SELECT COUNT(*) FROM CONNECTION WHERE customer_id = @cur_customer);
 
-			-- If delete is incorrect - insert deleted
+			-- If deleted all connections of the customer - delete customer
 			IF @num_of_conns = 0 AND EXISTS (SELECT * FROM CUSTOMER WHERE customer_id = @cur_customer)
 			BEGIN
-				INSERT INTO CONNECTION
-					SELECT * FROM @cp_deleted
-						WHERE customer_id = @cur_customer;
+				DELETE FROM CUSTOMER
+					WHERE customer_id = @cur_customer;
 			END
 
 			-- counter is incremented by the length of part, being deleted from @cp_deleted
@@ -64,32 +63,22 @@ GO
 
 BEGIN TRANSACTION;
 
-SELECT CONNECTION.customer_id, name, COUNT(*) FROM CONNECTION JOIN CUSTOMER ON CONNECTION.customer_id = CUSTOMER.customer_id
+SELECT name, COUNT(*) FROM CONNECTION JOIN CUSTOMER ON CONNECTION.customer_id = CUSTOMER.customer_id
 	GROUP BY CONNECTION.customer_id, name;
 
 SELECT COUNT(*) FROM CONNECTION;
-
-SELECT 'Иванов Иван' AS name, phone_number FROM CONNECTION
-	WHERE customer_id = dbo.cstrid_from_name('Иванов Иван');
 
 -- 'Вадимов Вадим' 's phone_number
 DELETE FROM CONNECTION
 	WHERE phone_number = 9168581126;
 
 SELECT COUNT(*) FROM CONNECTION;
+SELECT COUNT(*) FROM CUSTOMER;
 
 -- One of them is another 'Вадимов Вадим' 's phone_number and the other one is 'Иванов Иван' 's phone_number
 DELETE FROM CONNECTION
 	WHERE phone_number IN (9168581122, 9168581113);
 	
-SELECT COUNT(*) FROM CONNECTION;
-
--- Now how to delete last customer's connection (CONNECTION.customer_id -> CUSTOMER.customer_id [FK], on delete cascade)
-SELECT COUNT(*) FROM CUSTOMER;
-
-DELETE FROM CUSTOMER
-	WHERE customer_id = dbo.cstrid_from_name('Иванов Иван');
-
 SELECT COUNT(*) FROM CONNECTION;
 SELECT COUNT(*) FROM CUSTOMER;
 
